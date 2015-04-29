@@ -1,0 +1,12 @@
+{
+  "name": "XSSwat",
+  "version": "1.0",
+  "description": "Protects you from browsing to web pages with known XSS vulnerabilities.",
+  //"permissions": ["webRequest", "webRequestBlocking"],
+  "permissions": ["webRequest", "webRequestBlocking", "*://*/*"],
+  "background": {
+    "scripts": ["background.js", "md5.js"]
+  },
+
+  "manifest_version": 2
+}
