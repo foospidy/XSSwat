@@ -5,8 +5,8 @@ chrome.webRequest.onBeforeRequest.addListener(
 	function(request) {
 		try {
 			if('GET' == request.method) {
-				console.log("url: " + request.url);
-				console.log("method: " + request.method);
+				//console.log("url: " + request.url);
+				//console.log("method: " + request.method);
 				
 				var request_signature = '';
 				var query_parameters  = '';
@@ -21,7 +21,6 @@ chrome.webRequest.onBeforeRequest.addListener(
 					query_parameters  = url_parts[1];
 
 					var parameters = query_parameters.split('&');
-					//console.log(parameters.length);
 					
 					for(i=0; i<parameters.length; i++) {
 						//console.log('    ' + parameters[i]);
@@ -42,7 +41,6 @@ chrome.webRequest.onBeforeRequest.addListener(
 					hash_parameters = url_parts[1];
 
 					var parameters = hash_parameters.split('&');
-					//console.log(parameters.length);
 					
 					for(i=0; i<parameters.length; i++) {
 						//console.log('    ' + parameters[i]);
@@ -55,10 +53,8 @@ chrome.webRequest.onBeforeRequest.addListener(
 				if(!request_signature.length) {
 					request_signature = url_parts[0];
 				}
-					
-				console.log(request_signature);
+				
 				var hash = CryptoJS.MD5(request_signature.trim());
-				console.log(hash.toString(CryptoJS.enc.Hex));
 				
 				xhr = new XMLHttpRequest();
 				xhr.open('GET', 'https://riskdiscovery.com/api/xsswat/' + hash, false);
@@ -66,8 +62,6 @@ chrome.webRequest.onBeforeRequest.addListener(
 				
 				json   = xhr.responseText;
 				object = JSON.parse(json);
-				
-				console.log(object.xss);
 				
 				if('true' == object.xss) {
 					return { redirectUrl: 'https://riskdiscovery.com/xsswat/' + hash } 
