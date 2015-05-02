@@ -1,6 +1,8 @@
 // XSSwat Copyright (C) 2015 foospidy
 // https://github.com/foospidy/XSSwat
 // See LICENSE for details
+// This script requires/uses the CryptoJS md5 module (code.google.com/p/crypto-js) which
+// has its own license, see code.google.com/p/crypto-js/wiki/License
 
 chrome.webRequest.onBeforeRequest.addListener(
 	function(request) {
