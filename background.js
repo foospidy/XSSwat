@@ -1,5 +1,6 @@
-// XSSwat
-// 
+// XSSwat Copyright (C) 2015 foospidy
+// https://github.com/foospidy/XSSwat
+// See LICENSE for details
 
 chrome.webRequest.onBeforeRequest.addListener(
 	function(request) {
