@@ -1,6 +1,6 @@
 // XSSwat Copyright (C) 2015 foospidy
 // https://github.com/foospidy/XSSwat
-// See LICENSE for details
+// XSSwat is licensed under GPL v2.0, see LICENSE for details
 // This script requires/uses the CryptoJS md5 module (code.google.com/p/crypto-js) which
 // has its own license, see code.google.com/p/crypto-js/wiki/License
 
