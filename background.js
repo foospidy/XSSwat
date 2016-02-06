@@ -1,6 +1,6 @@
 // XSSwat Copyright (C) 2015 foospidy
 // https://github.com/foospidy/XSSwat
-// XSSwat is licensed under GPL v2.0, see LICENSE for details
+// See LICENSE for details
 // This script requires/uses the CryptoJS md5 module (code.google.com/p/crypto-js) which
 // has its own license, see code.google.com/p/crypto-js/wiki/License
 
@@ -26,6 +26,8 @@ chrome.webRequest.onBeforeRequest.addListener(
 					// split up query parameters into an array
 					var parameters = query_parameters.split('&');
 					
+                    			parameters.sort();
+					
 					// loop through all parameters and append parameter 
 					// names to request signature
 					for(i=0; i<parameters.length; i++) {
@@ -46,12 +48,14 @@ chrome.webRequest.onBeforeRequest.addListener(
 						request_signature = url_parts[0];
 					}
 					
-					
 					hash_parameters = url_parts[1]; // hash parameters
 					
 					// split up hash parameters into an array
 					var parameters = hash_parameters.split('&');
-					
+                    
+            				parameters.sort();
+                    
+					console.log(parameters);
 					for(i=0; i<parameters.length; i++) {
 						parameter_parts = parameters[i].split('=', 2); // split parameter into parts
 						request_signature += '#' + parameter_parts[0]; // append parameter name	
